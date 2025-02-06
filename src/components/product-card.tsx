@@ -24,10 +24,11 @@ export function ProductCard({ product }: { product: Product }) {
         alt={product.title}
         width={300}
         height={300}
-        className="h-48 w-full object-cover"
+        className="h-48 w-full object-cover rounded"
       />
       <div className="p-4">
         <h2 className="mb-2 truncate text-lg font-semibold">{product.title}</h2>
+        <p className="mb-2 text-gray-600">{product.category}</p>
         <p className="mb-2 line-clamp-2 text-gray-600">{product.description}</p>
         <p className="mb-4 text-xl font-bold">${product.price.toFixed(2)}</p>
         <Link
