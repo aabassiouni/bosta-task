@@ -38,7 +38,7 @@ export function ProductCard({ product }: { product: Product }) {
             View Details
           </Link>
           <button
-            className="rounded-lg bg-red-500 px-6 py-3 text-white transition-colors hover:bg-red-600"
+            className="cursor-pointer rounded-lg bg-red-500 px-4 py-2 text-white transition-colors hover:bg-red-600"
             onClick={() => addItem(product, 1)}
           >
             Add to Cart
