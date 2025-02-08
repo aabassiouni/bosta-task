@@ -30,11 +30,13 @@ export const useCartStore = create<CartStore>((set) => ({
             items: state.items.map((i) =>
               i.id === item.id ? { ...i, quantity: i.quantity + (quantity || 1) } : i,
             ),
+            dialogOpen: true,
           };
         }
 
         return {
           items: [...state.items, { ...item, quantity: quantity || 1 }],
+          dialogOpen: true,
         };
       }),
 
