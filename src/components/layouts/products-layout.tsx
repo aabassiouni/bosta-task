@@ -3,10 +3,10 @@ import { Topbar } from "../topbar";
 
 export function ProductsLayout() {
   return (
-    <div className="flex flex-1 flex-col bg-red-100">
+    <div className="flex min-h-screen flex-1 flex-col bg-red-100">
       <Topbar />
-      <div className="flex flex-1 p-4">
-        <Outlet />  
+      <div className="p-4">
+        <Outlet />
       </div>
     </div>
   );

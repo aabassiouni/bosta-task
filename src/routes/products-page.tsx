@@ -4,14 +4,12 @@ import { useAllProductsQuery } from "../hooks/useAllProductsQuery";
 import { Pagination } from "../components/pagination";
 
 function ProductsLoading() {
-  return new Array(4).fill(0).map((_, i) => {
-    return (
-      <div className="flex w-1/4 justify-center" key={i}>
-        <ProductCardSkeleton />
-      </div>
-    );
+  return new Array(4).fill(0).map(() => {
+    return <ProductCardSkeleton />;
   });
 }
+
+const PRODUCTS_PER_PAGE = 10;
 
 export function ProductsPage() {
   const [sortBy, setSortBy] = useState<"price-asc" | "price-desc" | "category" | undefined>(
@@ -37,21 +35,20 @@ export function ProductsPage() {
     }
   });
 
-  const productsPerPage = 10;
-  const startIndex = (currentPage - 1) * productsPerPage;
-  const paginatedProducts = sortedProducts.slice(startIndex, startIndex + productsPerPage);
+  const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
+  const paginatedProducts = sortedProducts.slice(startIndex, startIndex + PRODUCTS_PER_PAGE);
 
-  const totalPages = Math.ceil((sortedProducts?.length || 0) / productsPerPage);
+  const totalPages = Math.ceil((sortedProducts?.length || 0) / PRODUCTS_PER_PAGE);
 
   return (
-    <div className="flex flex-col gap-4 px-24">
-      <div className="flex gap-2">
+    <div className="flex w-full flex-col gap-4 md:px-24">
+      <div className="flex flex-col gap-2 md:flex-row">
         <select
           className="rounded-md border border-gray-300 bg-white px-4 py-2"
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
         >
-          <option value="">Choose an option</option>
+          <option value="">Sort By...</option>
           <option value="price-asc">Price: Low to High</option>
           <option value="price-desc">Price: High to Low</option>
           <option value="category">Category</option>
@@ -62,15 +59,11 @@ export function ProductsPage() {
           totalPages={totalPages}
         />
       </div>
-      <div className="flex flex-wrap items-center justify-between gap-4">
+      <div className="flex flex-col flex-wrap gap-4 md:flex-row">
         {isLoading && <ProductsLoading />}
         {!isLoading &&
           paginatedProducts.map((product) => {
-            return (
-              <div className="flex w-1/4 flex-1 justify-center" key={product.id}>
-                <ProductCard product={product} />
-              </div>
-            );
+            return <ProductCard product={product} />;
           })}
       </div>
     </div>
