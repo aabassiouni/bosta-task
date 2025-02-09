@@ -42,7 +42,7 @@ export function ProductsPage() {
   const totalPages = Math.ceil((sortedProducts?.length || 0) / PRODUCTS_PER_PAGE);
 
   return (
-    <div className="flex w-full flex-col gap-4 md:px-24">
+    <div className="flex w-full flex-col items-center gap-4 md:px-24">
       <div>
         <h1 className="text-3xl font-bold">All Products</h1>
       </div>
@@ -69,7 +69,7 @@ export function ProductsPage() {
           Create Product
         </Link>
       </div>
-      <div className="flex flex-col flex-wrap gap-4 md:flex-row">
+      <div className="flex flex-col justify-center flex-wrap gap-4 md:flex-row">
         {isLoading && <ProductsLoading />}
         {!isLoading &&
           paginatedProducts.map((product) => {
