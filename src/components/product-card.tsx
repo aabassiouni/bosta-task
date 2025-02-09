@@ -30,7 +30,7 @@ export function ProductCard({ product }: { product: Product }) {
         <p className="mb-2 text-gray-600">{product.category}</p>
         <p className="mb-2 line-clamp-2 text-gray-600">{product.description}</p>
         <p className="mb-4 text-xl font-bold">${product.price.toFixed(2)}</p>
-        <div className="gap-4">
+        <div className="gap-4 flex justify-between">
           <Link
             to={`/product/${product.id}`}
             className="rounded-lg bg-blue-500 px-4 py-2 text-center text-white transition-colors hover:bg-blue-600"
