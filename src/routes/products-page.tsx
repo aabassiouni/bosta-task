@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ProductCard, ProductCardSkeleton } from "../components/product-card";
 import { useAllProductsQuery } from "../hooks/useAllProductsQuery";
 import { Pagination } from "../components/pagination";
+import { Link } from "react-router-dom";
 
 function ProductsLoading() {
   return new Array(4).fill(0).map(() => {
@@ -42,6 +43,9 @@ export function ProductsPage() {
 
   return (
     <div className="flex w-full flex-col gap-4 md:px-24">
+      <div>
+        <h1 className="text-3xl font-bold">All Products</h1>
+      </div>
       <div className="flex flex-col gap-2 md:flex-row">
         <select
           className="rounded-md border border-gray-300 bg-white px-4 py-2"
@@ -58,6 +62,12 @@ export function ProductsPage() {
           setCurrentPage={setCurrentPage}
           totalPages={totalPages}
         />
+        <Link
+          to="/product/create"
+          className="rounded-md border border-gray-300 bg-red-500 px-4 py-2 text-center text-white transition-colors hover:bg-blue-600"
+        >
+          Create Product
+        </Link>
       </div>
       <div className="flex flex-col flex-wrap gap-4 md:flex-row">
         {isLoading && <ProductsLoading />}
