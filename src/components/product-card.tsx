@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Product } from "../types";
 import { Skeleton } from "./ui/skeleton";
 import { useCartStore } from "../stores/cart";
+import Button from "./button";
 
 export function ProductCardSkeleton() {
   return (
@@ -30,19 +31,14 @@ export function ProductCard({ product }: { product: Product }) {
         <p className="mb-2 text-gray-600">{product.category}</p>
         <p className="mb-2 line-clamp-2 text-gray-600">{product.description}</p>
         <p className="mb-4 text-xl font-bold">${product.price.toFixed(2)}</p>
-        <div className="gap-4 flex justify-between">
+        <div className="flex justify-between gap-4">
           <Link
             to={`/product/${product.id}`}
             className="rounded-lg bg-blue-500 px-4 py-2 text-center text-white transition-colors hover:bg-blue-600"
           >
             View Details
           </Link>
-          <button
-            className="cursor-pointer rounded-lg bg-red-500 px-4 py-2 text-white transition-colors hover:bg-red-600"
-            onClick={() => addItem(product, 1)}
-          >
-            Add to Cart
-          </button>
+          <Button onClick={() => addItem(product, 1)}>Add to Cart</Button>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { useProductDetailsQuery } from "../hooks/useProductDetailsQuery";
 import { ArrowLeftIcon } from "lucide-react";
 import { useCartStore } from "../stores/cart";
 import { Skeleton } from "../components/ui/skeleton";
+import Button from "../components/button";
 
 export function ProductDetailsPage() {
   const { id } = useParams<{ id: string }>();
@@ -70,12 +71,7 @@ export function ProductDetailsPage() {
           <p className="mb-4 text-lg text-gray-600">{data.category}</p>
           <p className="mb-6 text-gray-700">{data.description}</p>
           <p className="mb-8 text-3xl font-bold">${data.price.toFixed(2)}</p>
-          <button
-            className="rounded-lg bg-red-500 px-6 py-3 text-white transition-colors hover:bg-red-600"
-            onClick={() => addItem(data, 1)}
-          >
-            Add to Cart
-          </button>
+          <Button onClick={() => addItem(data, 1)}>Add to Cart</Button>
         </div>
       </div>
     </div>
