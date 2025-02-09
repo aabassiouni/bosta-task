@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Product } from "../types";
 import { Skeleton } from "./ui/skeleton";
 import { useCartStore } from "../stores/cart";
-import Button from "./button";
+import Button from "./ui/button";
 
 export function ProductCardSkeleton() {
   return (

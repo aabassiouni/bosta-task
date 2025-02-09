@@ -3,7 +3,7 @@ import { useProductDetailsQuery } from "../hooks/useProductDetailsQuery";
 import { ArrowLeftIcon } from "lucide-react";
 import { useCartStore } from "../stores/cart";
 import { Skeleton } from "../components/ui/skeleton";
-import Button from "../components/button";
+import Button from "../components/ui/button";
 
 export function ProductDetailsPage() {
   const { id } = useParams<{ id: string }>();
