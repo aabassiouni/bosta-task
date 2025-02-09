@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { SignupPage } from "./routes/signup";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ProductsPage } from "./routes/products-page";
 import { ProductDetailsPage } from "./routes/product-details-page";
@@ -21,12 +20,8 @@ const router = createBrowserRouter([
       {
         path: "/product/create",
         element: <CreateProductPage />,
-      }
+      },
     ],
-  },
-  {
-    path: "/signup",
-    element: <SignupPage />,
   },
 ]);
 

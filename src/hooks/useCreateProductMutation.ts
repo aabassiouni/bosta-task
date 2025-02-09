@@ -13,7 +13,7 @@ export function useCreateProductMutation({
   onError,
 }: {
   onSuccess?: (data: Omit<Product, "id">) => void;
-  onError?: (error: any) => void;
+  onError?: (error: Error) => void;
 }) {
   return useMutation({
     mutationFn: createProduct,
