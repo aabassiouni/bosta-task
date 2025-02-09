@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Product } from "../types";
-import { apiClient } from "../lib/apiClient";
+import { apiClient } from "../lib/api";
 
 async function fetchProductDetails(id: string | undefined) {
   const response = await apiClient.get<Product>(`/products/${id}`);

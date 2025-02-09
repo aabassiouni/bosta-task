@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { apiClient } from "../lib/apiClient";
+import { apiClient } from "../lib/api";
 
 async function fetchCategories() {
   const response = await apiClient.get("/products/categories");

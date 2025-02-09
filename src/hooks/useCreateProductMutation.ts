@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { apiClient } from "../lib/apiClient";
+import { apiClient } from "../lib/api";
 import { Product } from "../types";
 
 async function createProduct(data: Omit<Product, "id">) {
